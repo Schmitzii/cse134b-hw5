@@ -3,17 +3,26 @@
     --default-section-margin: 1em 0;
     --default-padding: 1em;
     --default-border-radius: 1.5em;
-    --primary-color: #284b63;
-    --primary-color: oklch(40% 0.12 250);
-    /*wide-gamut override*/
-    --secondary-color: #3c6e71;
-    --secondary-color: color(display-p3 0.24 0.47 0.48);
-    /* wide-gamut override */
-    --dark-color: #353535;
-    --light-color: #d9d9d9;
+    --base-color: white;
+    --base-variant: #e8e9ed;
+    --primary-color: #3A7D44;
+    --accent-color: #29335C;
+    --text-color: black;
     --default-font-family: 'Lexend', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --timestamp-color1: rgb(60 110 113);
     --timestamp-color2: rgb(49 90 92);
+}
+
+body{
+    background-color: var(--base-color);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--text-color);
+}
+
+.darkmode{
+    --base-color: black;
+    --base-variant: rgb(29, 29, 29);
+    --text-color: white;
 }
 
 @font-face {
@@ -24,7 +33,6 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 h1,
@@ -41,7 +49,7 @@ h1 {
 
 h2 {
     text-decoration: underline;
-    text-decoration-color: var(--secondary-color, black);
+    text-decoration-color: var(--primary-color, black);
     text-decoration-thickness: 0.15em;
 }
 
@@ -59,12 +67,17 @@ main {
 }
 
 .first-letter {
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 
 main>section {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    
+}
+
+.darkmode main>section{
+    background-color: var(--base-variant);
 }
 
 section {
@@ -81,7 +94,7 @@ a {
 }
 
 em {
-    color: var(--secondary-color, black);
+    color: var(--primary-color, black);
     font-style: normal;
 }
 
@@ -110,7 +123,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: black;
+    color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     display: inline-block;
@@ -178,8 +191,12 @@ project-card {
     border-radius: 12px;
     padding: 1rem;
     margin: 1rem 0;
-    background-color: #fafafa;
+    background-color: var(--base-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.darkmode project-card{
+    border: none;
 }
 
 @media (min-width: 801px) {
@@ -205,7 +222,6 @@ project-card h3 {
 
 project-card p {
     font-size: 0.9rem;
-    color: #333;
 }
 
 progress {
@@ -215,7 +231,6 @@ progress {
 fieldset {
     padding: var(--default-padding);
     border: none;
-    background-color: rgb(247, 247, 247);
 }
 
 form {
@@ -252,7 +267,7 @@ form input:focus,
 form textarea:focus {
     outline: none;
     border-color: var(--primary-color, black);
-    box-shadow: 0 0 5px var(--secondary-color, black)
+    box-shadow: 0 0 5px var(--primary-color, black)
 }
 
 form input:user-invalid,
@@ -266,7 +281,7 @@ button {
     padding: 1em 3em;
     border-radius: var(--default-border-radius);
     border: none;
-    background-color: var(--secondary-color, black);
+    background-color: var(--primary-color, black);
     color: white;
     font-size: 1.1em;
 }
@@ -275,7 +290,7 @@ button:hover {
     cursor: pointer;
     transform: scale(1.05);
     transition: transform 0.2s ease;
-    background-color: var(--primary-color, black);
+    background-color: var(--accent-color, black);
 }
 
 iframe {
@@ -286,7 +301,7 @@ iframe {
 }
 
 a {
-    color: var(--secondary-color, black);
+    color: var(--text-color, black);
     text-decoration: underline;
 }
 
@@ -483,4 +498,38 @@ output[name="information"].error {
   0% { box-shadow: 0 0 0px red; }
   50% { box-shadow: 0 0 10px red; }
   100% { box-shadow: 0 0 0px red; }
+}
+
+#theme-switch{
+    height: 2.5em;
+    width: 2.5em;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--base-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    box-shadow: 0 0 4px gray;
+    border: none;
+}
+
+#theme-switch svg{
+    fill: var(--primary-color)
+}
+
+#theme-switch svg:last-child{
+    display: none;
+}
+
+.darkmode #theme-switch svg:first-child{
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child{
+    display: block
 }
