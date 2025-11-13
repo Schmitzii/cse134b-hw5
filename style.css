@@ -4,7 +4,7 @@
     --default-padding: 1em;
     --default-border-radius: 1.5em;
     --base-color: white;
-    --base-variant: #e8e9ed;
+    --base-variant: #f4f4f4;
     --primary-color: #3A7D44;
     --accent-color: #29335C;
     --text-color: black;
@@ -72,11 +72,8 @@ main {
 
 
 main>section {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
-
-.darkmode main>section {
     background-color: var(--base-variant);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 section {
@@ -190,21 +187,15 @@ a:focus::before {
 
 project-card {
     display: block;
-    border: 2px solid #ddd;
-    border-radius: 12px;
+    border-radius: 1em;
     padding: 1rem;
     margin: 1rem 0;
     background-color: var(--base-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
-.darkmode project-card {
-    border: none;
-}
-
 @media (min-width: 801px) {
     #project-section:has(project-card:hover) project-card:not(:hover) {
-        opacity: 0.5;
         transform: scale(0.98);
     }
 }
@@ -542,6 +533,7 @@ output[name="information"].error {
 }
 
 #project-article {
+    background-color: var(--base-variant);
     max-width: 60rem;
     width: 90%;
     border-radius: 1em;
@@ -551,24 +543,18 @@ output[name="information"].error {
     margin: auto;
 }
 
-.darkmode #project-article{
-    background-color: var(--base-variant);
-}
-
 figure {
     margin: 0;
     position: relative;
-    /* wichtig für das Overlay */
+    /* important for overlay */
 }
 
-/* Bild: responsive, immer die Breite des Containers einnehmen */
 #project-article img {
     display: block;
     width: 100%;
     height: auto;
 }
 
-/* Overlay am unteren Rand: halbtransparentes Verlaufs-Overlay + Text */
 .overlay {
     position: absolute;
     left: 0;
@@ -578,9 +564,9 @@ figure {
     background: linear-gradient(0deg,
             rgba(0, 0, 0, 0.65) 0%,
             rgba(0, 0, 0, 0.65) 30%,
-            /* <-- Added this stop */
             rgba(0, 0, 0, 0.5) 50%,
             rgba(0, 0, 0, 0.3) 70%,
+            rgba(0, 0, 0, 0.075) 90%,
             transparent 100%);
     color: #fff;
     box-sizing: border-box;
@@ -621,6 +607,30 @@ footer{
 
 #personal-portfolio-image{
     view-transition-name: personal-portfolio-image;
+}
+
+#electric-field-title{
+    view-transition-name: electric-field-title;
+}
+
+#homework-2-title{
+    view-transition-name: homework-2-title;
+}
+
+#personal-portfolio-title{
+    view-transition-name: personal-portfolio-title;
+}
+
+#electric-field-text{
+    view-transition-name: electric-field-text;
+}
+
+#homework-2-text{
+    view-transition-name: homework-2-text;
+}
+
+#personal-portfolio-text{
+    view-transition-name: personal-portfolio-text;
 }
 
 /*::view-transition-old(electric-field-image),
