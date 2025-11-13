@@ -184,6 +184,10 @@ a:focus::before {
     }
 }
 
+#project-section a{
+    display: contents
+}
+
 project-card {
     display: block;
     border: 2px solid #ddd;
@@ -537,19 +541,104 @@ output[name="information"].error {
     display: block
 }
 
-/* Make the transition use a fade effect */
-::view-transition-old(root),
-::view-transition-new(root) {
-    animation: fade 0.4s ease;
+#project-article {
+    max-width: 60rem;
+    width: 90%;
+    border-radius: 1em;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    background: var(--base-color);
+    margin: auto;
 }
 
-/* The actual fade keyframes */
-@keyframes fade {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+.darkmode #project-article{
+    background-color: var(--base-variant);
 }
+
+figure {
+    margin: 0;
+    position: relative;
+    /* wichtig für das Overlay */
+}
+
+/* Bild: responsive, immer die Breite des Containers einnehmen */
+#project-article img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Overlay am unteren Rand: halbtransparentes Verlaufs-Overlay + Text */
+.overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2em var(--default-padding);
+    background: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.65) 0%,
+            rgba(0, 0, 0, 0.65) 30%,
+            /* <-- Added this stop */
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0.3) 70%,
+            transparent 100%);
+    color: #fff;
+    box-sizing: border-box;
+    min-height: 8em;
+}
+
+.overlay h2 {
+    margin: 1em 0 0.5em;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.overlay p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.95;
+}
+
+#additional-information{
+    padding: var(--default-padding);
+}
+
+footer{
+    margin-top: 1em;
+}
+
+@view-transition{
+    navigation: auto;
+}
+
+#electric-field-image{
+    view-transition-name: electric-field-image;
+}
+
+#homework-2-image{
+    view-transition-name: homework-2-image;
+}
+
+#personal-portfolio-image{
+    view-transition-name: personal-portfolio-image;
+}
+
+/*::view-transition-old(electric-field-image),
+::view-transition-new(electric-field-image),
+::view-transition-old(electric-field-title),
+::view-transition-new(electric-field-title) {
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-group(*) {
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+}
+*/
+
+::view-transition-group(root) {
+    animation: none;
+}
+
+

@@ -7,6 +7,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="js/contact-form.js" defer></script>
+    <script>
+        // Immediately run before the page paints
+        try {
+            const darkMode = localStorage.getItem("darkmode");
+            if (darkMode === "active") {
+                document.documentElement.classList.add("darkmode");
+            }
+        } catch (e) { }
+    </script>
     <script src="js/index.js" defer></script>
     <noscript>
         <style>

@@ -6,7 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Moritz Schmitz</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
-    <link rel="stylesheet" href="style.css" media="screen" , type="text/css">
+    <link rel="stylesheet" href="style.css" media="screen" type="text/css">
+    <script>
+        // Immediately run before the page paints
+        try {
+            const darkMode = localStorage.getItem("darkmode");
+            if (darkMode === "active") {
+                document.documentElement.add("darkmode");
+            }
+        } catch (e) { }
+    </script>
     <script src="js/index.js" defer></script>
     <noscript>
         <style>
@@ -31,50 +40,53 @@
     </header>
     <main>
         <section id="project-section">
-            <project-card>
-                <picture>
-                    <source srcset="assets/images/electric-field-screenshot.webp" media="(min-width: 800px)">
-                    <source srcset="assets/images/electric-field-screenshot.jpg" media="(min-width: 800px)">
+            <a href="projects/electric-field-project.html">
+                <project-card>
+                    <picture>
+                        <source srcset="assets/images/electric-field-screenshot.webp" media="(min-width: 800px)">
+                        <source srcset="assets/images/electric-field-screenshot.jpg" media="(min-width: 800px)">
 
-                    <source srcset="assets/images/electric-field-screenshot-small.webp">
-                    <img src="assets/images/electric-field-screenshot-small.jpg"
-                        alt="Screenshot of Electric Field Visualization Project" width="300">
-                </picture>
-                <h3>Electric Field Visualization</h3>
-                <p>This tool was part of my physics course in highschool.</p>
-                <p>Project Stage: <progress max="100.00" value="100.00"></progress></p>
-                </svg><br>
-                <a href="https://github.com/Schmitzii/electric-field">Git Repository</a>
-            </project-card>
-            <project-card>
-                <picture>
-                    <source srcset="assets/images/hw2-replica-screenshot.webp" media="(min-width: 800px)">
-                    <source srcset="assets/images/hw2-replica-screenshot.jpg" media="(min-width: 800px)">
+                        <source srcset="assets/images/electric-field-screenshot-small.webp">
+                        <img src="assets/images/electric-field-screenshot-small.jpg" id="electric-field-image"
+                            alt="Screenshot of Electric Field Visualization Project" width="300">
+                    </picture>
+                    <h3 id="project-electric-field-title">Electric Field Visualization</h3>
+                    <p>This tool was part of my physics course in highschool.</p>
+                    <p>Project Stage: <progress max="100.00" value="100.00"></progress></p>
+                </project-card>
+            </a>
 
-                    <source srcset="assets/images/hw2-replica-screenshot-small.webp">
-                    <img src="assets/images/hw2-replica-screenshot-small.jpg" alt="Screenshot of HW2" width="300">
-                </picture>
-                <h3>My Homework 2</h3>
-                <p>Had lots of fun doing this!</p>
-                <p>Project Stage: <progress max="100.00" value="100.00"></progress></p>
-                </svg><br>
-                <a href="https://github.com/Schmitzii/cse134b-hw2">Git Repository</a>
-            </project-card>
-            <project-card>
-                <picture>
-                    <source srcset="assets/images/portfolio-screenshot.webp" media="(min-width: 800px)">
-                    <source srcset="assets/images/portfolio-screenshot.jpg" media="(min-width: 800px)">
+            <a href="projects/homework-2-project.html">
+                <project-card>
+                    <picture>
+                        <source srcset="assets/images/hw2-replica-screenshot.webp" media="(min-width: 800px)">
+                        <source srcset="assets/images/hw2-replica-screenshot.jpg" media="(min-width: 800px)">
 
-                    <source srscet="assets/images/portfolio-screenshot-small.webp">
-                    <img src="assets/images/portfolio-screenshot-small.jpg" alt="Screenshot of Portolfio Website"
-                        width="300">
-                </picture>
-                <h3>My Personal Portfolio</h3>
-                <p>Currently in progress. Never finished.</p>
-                <p>Project Stage: <progress max="100.00" value="50.00"></progress></p>
-                </svg><br>
-                <a href="https://github.com/Schmitzii/cse134b-hw3">Git Repository</a>
-            </project-card>
+                        <source srcset="assets/images/hw2-replica-screenshot-small.webp">
+                        <img src="assets/images/hw2-replica-screenshot-small.jpg" id="homework-2-image"
+                            alt="Screenshot of HW2" width="300">
+                    </picture>
+                    <h3 id="project-homework-2-title">My Homework 2</h3>
+                    <p>Had lots of fun doing this!</p>
+                    <p>Project Stage: <progress max="100.00" value="100.00"></progress></p>
+                </project-card>
+            </a>
+
+            <a href="projects/personal-portfolio-project.html">
+                <project-card>
+                    <picture>
+                        <source srcset="assets/images/portfolio-screenshot.webp" media="(min-width: 800px)">
+                        <source srcset="assets/images/portfolio-screenshot.jpg" media="(min-width: 800px)">
+
+                        <source srcset="assets/images/portfolio-screenshot-small.webp">
+                        <img src="assets/images/portfolio-screenshot-small.jpg" id="personal-portfolio-image"
+                            alt="Screenshot of Portolfio Website" width="300">
+                    </picture>
+                    <h3 id="project-personal-portfolio-title">My Personal Portfolio</h3>
+                    <p>Currently in progress. Never finished.</p>
+                    <p>Project Stage: <progress max="100.00" value="50.00"></progress></p>
+                </project-card>
+            </a>
         </section>
     </main>
     <footer>

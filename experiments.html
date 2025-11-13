@@ -7,6 +7,15 @@
     <title>Experiments | Moritz Schmitz</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css" media="screen" , type="text/css">
+    <script>
+        // Immediately run before the page paints
+        try {
+            const darkMode = localStorage.getItem("darkmode");
+            if (darkMode === "active") {
+                document.documentElement.classList.add("darkmode");
+            }
+        } catch (e) { }
+    </script>
     <script src="js/index.js" defer></script>
 </head>
 
