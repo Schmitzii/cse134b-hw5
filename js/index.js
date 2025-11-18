@@ -17,3 +17,20 @@ themeSwitch.addEventListener("click", () => {
     darkmode = localStorage.getItem('darkmode')
     darkmode !== "active" ? enableDarkmode() : disableDarkmode();
 });
+
+
+const bgPicker = document.getElementById("bgColorPicker");
+const textPicker = document.getElementById("textColorPicker");
+const fontPicker = document.getElementById("fontPicker");
+
+bgPicker.addEventListener("input", (e) => {
+    document.documentElement.style.setProperty("--background-color", e.target.value);
+});
+
+textPicker.addEventListener("input", (e) => {
+    document.documentElement.style.setProperty("--text-color", e.target.value);
+});
+
+fontPicker.addEventListener("change", (e) => {
+    document.documentElement.style.setProperty("--font-family", e.target.value);
+});
