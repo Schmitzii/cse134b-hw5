@@ -70,13 +70,6 @@ function addMasking(field, pattern, fieldName) {
             char = field.value.slice(-1);
             field.value = field.value.slice(0, -1);
 
-            form_errors.push({
-                field: fieldName,
-                type: "illegal_character",
-                value: char,
-                time: new Date().toISOString()
-            });
-
             // Flash + show error
             showTemporaryError(`Illegal character typed in ${fieldName} field.`, field);
         }
