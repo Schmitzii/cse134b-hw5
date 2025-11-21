@@ -11,13 +11,18 @@
     --default-font-family: 'Lexend', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --timestamp-color1: rgb(60 110 113);
     --timestamp-color2: rgb(49 90 92);
-    --font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 body {
     background-color: var(--base-color);
-    font-family: var(--font-family);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: var(--text-color);
+}
+
+.darkmode {
+    --base-color: black;
+    --base-variant: rgb(29, 29, 29);
+    --text-color: white;
 }
 
 @font-face {
@@ -176,7 +181,7 @@ a:focus::before {
     }
 }
 
-#project-section a {
+#project-section a{
     display: contents
 }
 
@@ -511,6 +516,22 @@ output[name="information"].error {
     border: none;
 }
 
+#theme-switch svg {
+    fill: var(--primary-color)
+}
+
+#theme-switch svg:last-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+    display: block
+}
+
 #project-article {
     background-color: var(--base-variant);
     max-width: 60rem;
@@ -564,80 +585,68 @@ figure {
     opacity: 0.95;
 }
 
-#additional-information {
+#additional-information{
     padding: var(--default-padding);
 }
 
-footer {
+footer{
     margin-top: 1em;
 }
 
-@view-transition {
+@view-transition{
     navigation: auto;
 }
 
-#electric-field-image {
+#electric-field-image{
     view-transition-name: electric-field-image;
 }
 
-#homework-2-image {
+#homework-2-image{
     view-transition-name: homework-2-image;
 }
 
-#personal-portfolio-image {
+#personal-portfolio-image{
     view-transition-name: personal-portfolio-image;
 }
 
-#electric-field-title {
+#electric-field-title{
     view-transition-name: electric-field-title;
 }
 
-#homework-2-title {
+#homework-2-title{
     view-transition-name: homework-2-title;
 }
 
-#personal-portfolio-title {
+#personal-portfolio-title{
     view-transition-name: personal-portfolio-title;
 }
 
-#electric-field-text {
+#electric-field-text{
     view-transition-name: electric-field-text;
 }
 
-#homework-2-text {
+#homework-2-text{
     view-transition-name: homework-2-text;
 }
 
-#personal-portfolio-text {
+#personal-portfolio-text{
     view-transition-name: personal-portfolio-text;
 }
 
+/*::view-transition-old(electric-field-image),
+::view-transition-new(electric-field-image),
+::view-transition-old(electric-field-title),
+::view-transition-new(electric-field-title) {
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-group(*) {
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+}
+*/
+
 ::view-transition-group(root) {
     animation: none;
-}
-
-
-.picker-container {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    background: var(--base-variant);
-    padding: 1rem;
-    border-radius: 1rem;
-    max-width: 400px;
-    margin: auto;
-}
-
-label {
-    display: flex;
-    flex-direction: column;
-    font-size: 0.9rem;
-    gap: 0.4rem;
-}
-
-select,
-input[type="color"] {
-    padding: 0.4rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ccc;
 }
