@@ -670,7 +670,6 @@ footer {
     align-items: stretch; /* make cards stretch to same height when possible */
     gap: 1rem;
     flex-wrap: wrap;
-    width: 100%;
     box-sizing: border-box;
     padding: 0.5rem;
 }
