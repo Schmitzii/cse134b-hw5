@@ -11,14 +11,6 @@
     --default-font-family: 'Lexend', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --timestamp-color1: rgb(60 110 113);
     --timestamp-color2: rgb(49 90 92);
-
-    /* Card variables moved here so they are available globally */
-    --card-bg: #fff;
-    --card-text: #222;
-    --card-border: #e3e3e3;
-    --card-radius: 16px;
-    --card-padding: 18px;
-    --card-link: #1a6bff;
     --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -656,41 +648,4 @@ footer {
 
 ::view-transition-group(root) {
     animation: none;
-}
-
-/* Note: top-level ":host" selectors do not apply outside shadow DOM.
-   Variables required by components are defined in :root above. */
-
-/* --- FLEXBOX LAYOUT --- */
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-#skills-section h2 {
-    margin: 0;
-    text-align: center;
-    font-size: 1.3rem;
-    font-weight: 600;
-}
-
-.meta {
-    font-size: 0.85rem;
-    color: #666;
-}
-
-.keywords {
-    font-size: 0.85rem;
-    color: #444;
-}
-
-#skills-section a {
-    color: var(--card-link);
-    font-weight: 600;
-    text-decoration: none;
-}
-
-#skills-section a:hover {
-    text-decoration: underline;
 }
