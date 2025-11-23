@@ -1,0 +1,23 @@
+[
+  {
+    "title": "JavaScript",
+    "img": "/assets/images/portfolio-screenshot.jpg",
+    "alt": "JavaScript logo",
+    "description": "I build dynamic, interactive experiences using modern JavaScript (ES6+), DOM APIs, and progressive enhancement.",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+  },
+  {
+    "title": "React",
+    "img": "/assets/images/portfolio-screenshot-small.webp",
+    "alt": "React app screenshot",
+    "description": "Experience building component-based UIs and stateful applications with React.",
+    "link": "https://reactjs.org/"
+  },
+  {
+    "title": "SQL",
+    "img": "/assets/images/tum.webp",
+    "alt": "Database illustration",
+    "description": "Familiar with relational databases, writing efficient queries and basic schema design.",
+    "link": "https://www.sqlite.org/index.html"
+  }
+]

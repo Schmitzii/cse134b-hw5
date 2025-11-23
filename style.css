@@ -12,6 +12,8 @@
     --timestamp-color1: rgb(60 110 113);
     --timestamp-color2: rgb(49 90 92);
     --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --skill-card-width: 360px;
+    --skill-card-height: 380px;
 }
 
 body {
@@ -648,4 +650,33 @@ footer {
 
 ::view-transition-group(root) {
     animation: none;
+}
+
+#button-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    justify-content: center;
+}
+
+#button-wrapper button{
+    width: 13em
+}
+
+#skills-section {
+    /* center skill-card elements horizontally and allow wrapping */
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* make cards stretch to same height when possible */
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+}
+
+/* Ensure each skill-card takes the same width inside the flex container */
+skill-card {
+    flex: 0 0 var(--skill-card-width, 320px);
+    display: block;
 }
