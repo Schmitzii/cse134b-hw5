@@ -153,7 +153,7 @@ customElements.define('skill-card', SkillCard);
 const SAMPLE_LOCAL = [
     {
         title: "Python",
-        img: "/assets/images/tum.webp",
+        img: "/assets/images/python.webp",
         alt: "Python logo",
         description: "Python for scripting, data processing and building small tools.",
         link: "https://www.python.org/",
@@ -210,11 +210,17 @@ async function loadLocal() {
 
 async function loadRemote() {
     try {
-        const resp = await fetch('/assets/data/skills-remote.json');
+        const resp = await fetch("https://api.jsonbin.io/v3/b/69237e83d0ea881f40fb9b43", {
+            method: "GET",
+            headers: {
+                "X-Master-Key": "$2a$10$f8hGxtjiLlYlIkdopkVYUus/igwbGzI5dEjW26B2WgNYNkb6C7u5O"
+            }
+        });
         if (!resp.ok) throw new Error(`Fetch failed: ${resp.status}`);
         const data = await resp.json();
-        if (!Array.isArray(data)) throw new Error('Remote data is not an array');
-        renderSkills(data);
+        const record = data.record;
+        if (!Array.isArray(record)) throw new Error('Remote data is not an array');
+        renderSkills(record);
     } catch (e) {
         console.error('Failed to load remote skills', e);
     }
