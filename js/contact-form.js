@@ -1,7 +1,7 @@
 const form = document.querySelector("form");
 const nameField = document.getElementById("name");
 const emailField = document.getElementById("email");
-const commentsField = document.getElementById("comments");
+const messageField = document.getElementById("message");
 const formErrorsField = document.getElementById("form-errors")
 const errorOutput = document.querySelector('output[name="errors"]');
 const infoOutput = document.querySelector('output[name="information"]');
@@ -11,7 +11,7 @@ const form_errors = [];
 const allowedPatterns = {
     name: /^[A-Za-z\s'-]*$/, // letters, spaces, hyphens, apostrophes
     email: /^[A-Za-z0-9@._-]*$/,
-    comments: /^[A-Za-z0-9 .,!?'"()\-]*$/ // letters, numbers, punctuation
+    message: /^[A-Za-z0-9 .,!?'"()\-]*$/ // letters, numbers, punctuation
 };
 
 nameField.addEventListener("input", () => {
@@ -40,14 +40,14 @@ emailField.addEventListener("input", () => {
     }
 });
 
-commentsField.addEventListener("input", () => {
-    commentsField.setCustomValidity("");
+messageField.addEventListener("input", () => {
+    messageField.setCustomValidity("");
 
-    if (!commentsField.checkValidity()) {
-        if (commentsField.validity.valueMissing) {
-            commentsField.setCustomValidity("Please enter comment(s).");
+    if (!messageField.checkValidity()) {
+        if (messageField.validity.valueMissing) {
+            messageField.setCustomValidity("Please enter comment(s).");
         } else {
-            commentsField.setCustomValidity("Invalid comment(s).");
+            messageField.setCustomValidity("Invalid comment(s).");
         }
     }
 });
@@ -79,12 +79,12 @@ function addMasking(field, pattern, fieldName) {
 // Add masking to name and comments
 addMasking(nameField, allowedPatterns.name, "name");
 addMasking(emailField, allowedPatterns.email, "email");
-addMasking(commentsField, allowedPatterns.comments, "comments");
+addMasking(messageField, allowedPatterns.message, "message");
 
-const maxChars = commentsField.getAttribute("maxlength") || 300;
+const maxChars = messageField.getAttribute("maxlength") || 300;
 
 function updateCharCount() {
-    const remaining = maxChars - commentsField.value.length;
+    const remaining = maxChars - messageField.value.length;
     infoOutput.textContent = `${remaining} characters remaining`;
 
     infoOutput.classList.remove("warning", "error");
@@ -95,30 +95,29 @@ function updateCharCount() {
 
     if (remaining <= 0) {
         infoOutput.classList.add("error")
-        commentsField.setCustomValidity("Character limit reached!");
-        commentsField.reportValidity();
+        messageField.setCustomValidity("Character limit reached!");
+        messageField.reportValidity();
         form_errors.push({
             field: "comments",
             type: "max_length_exceeded",
-            value: commentsField.value.length,
+            value: messageField.value.length,
             time: new Date().toISOString()
         });
-        commentsField.value = commentsField.value.slice(0, maxChars);
-        showTemporaryError("You reached the maximum character limit!", commentsField);
+        messageField.value = messageField.value.slice(0, maxChars);
+        showTemporaryError("You reached the maximum character limit!", messageField);
     }
 }
 
-commentsField.addEventListener("input", updateCharCount);
+messageField.addEventListener("input", updateCharCount);
 
 form.addEventListener("submit", (e) => {
-    console.log("HELLO WORLD")
     formErrorsField.value = JSON.stringify(form_errors);
 
     if (!form.checkValidity()) {
         console.log("Form not valid.");
         e.preventDefault();
 
-        for (const field of [nameField, emailField, commentsField]) {
+        for (const field of [nameField, emailField, messageField]) {
             if (!field.checkValidity()) {
                 form_errors.push({
                     field: field.name,
