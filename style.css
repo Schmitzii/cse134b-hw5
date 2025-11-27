@@ -42,7 +42,7 @@ h1,
 h2,
 h3 {
     font-family: var(--default-font-family, sans-serif);
-    font-weight: normal
+    font-weight: normal;
 }
 
 h1 {
@@ -152,7 +152,7 @@ a:focus::before {
     display: flex;
     align-items: center;
     flex-direction: row;
-    gap: 1em
+    gap: 1em;
 }
 
 .about-body p {
@@ -180,12 +180,12 @@ a:focus::before {
 @media (max-width: 800px) {
     #project-section {
         flex-direction: column;
-        gap: 0
+        gap: 0;
     }
 }
 
 #project-section a {
-    display: contents
+    display: contents;
 }
 
 project-card {
@@ -253,7 +253,7 @@ form textarea {
 
 form input,
 form textarea {
-    width: 60dvw
+    width: 60dvw;
 }
 
 form input {
@@ -264,14 +264,14 @@ form input:focus,
 form textarea:focus {
     outline: none;
     border-color: var(--primary-color, black);
-    box-shadow: 0 0 5px var(--primary-color, black)
+    box-shadow: 0 0 5px var(--primary-color, black);
 }
 
 form input:user-invalid,
 form textarea:user-invalid {
     outline: none;
     border-color: darkred;
-    box-shadow: 0 0 5px red
+    box-shadow: 0 0 5px red;
 }
 
 button {
@@ -294,7 +294,7 @@ iframe {
     border-radius: var(--default-border-radius);
     border: none;
     width: 60dvw;
-    height: 20em
+    height: 20em;
 }
 
 a {
@@ -303,7 +303,7 @@ a {
 }
 
 svg {
-    fill: var(--secondary-color)
+    fill: var(--secondary-color);
 }
 
 ul {
@@ -466,7 +466,7 @@ ol {
 .timestamp p {
     font-size: 1.2em;
     font-weight: bold;
-    min-height: 4em
+    min-height: 4em;
 }
 
 output[name="errors"] {
@@ -660,7 +660,7 @@ footer {
 }
 
 #button-wrapper button{
-    width: 13em
+    width: 13em;
 }
 
 #skills-section {

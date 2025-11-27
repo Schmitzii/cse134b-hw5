@@ -1,6 +1,5 @@
 let darkmode = localStorage.getItem('darkmode');
 const themeSwitch = document.getElementById('theme-switch');
-const rootStyles = getComputedStyle(document.documentElement);
 
 function enableDarkmode() {
     document.documentElement.classList.add('darkmode');
@@ -12,12 +11,14 @@ function disableDarkmode() {
     localStorage.setItem('darkmode', null);
 }
 
-if (darkmode === "active") enableDarkmode()
+if (darkmode === "active") enableDarkmode();
 
-themeSwitch.addEventListener("click", () => {
-    darkmode = localStorage.getItem('darkmode')
-    darkmode !== "active" ? enableDarkmode() : disableDarkmode();
-});
+if (themeSwitch) {
+    themeSwitch.addEventListener('click', () => {
+        darkmode = localStorage.getItem('darkmode');
+        darkmode !== 'active' ? enableDarkmode() : disableDarkmode();
+    });
+}
 
 class SkillCard extends HTMLElement {
     static get observedAttributes() {
@@ -226,7 +227,6 @@ async function loadRemote() {
     }
 }
 
-// Wire buttons after DOM is ready (script is deferred, elements exist)
 document.addEventListener('DOMContentLoaded', () => {
     seedLocalIfEmpty();
     const localBtn = document.getElementById('load-local-button');

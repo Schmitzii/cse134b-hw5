@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Manage Skills | Moritz Schmitz</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="js/manage.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1><span class="first-letter">M</span>anage <span class="first-letter">S</span>kills</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="manage-skills.html">Manage</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Edit dataset</h2>
+      <form id="manage-form">
+        <label>Target:
+          <select id="target" name="target">
+            <option value="local">Local Storage</option>
+            <option value="remote">Remote</option>
+          </select>
+        </label>
+
+        <label>Action:
+          <select id="action" name="action">
+            <option value="create">Create</option>
+            <option value="update">Update</option>
+            <option value="delete">Delete</option>
+          </select>
+        </label>
+
+        <fieldset>
+          <legend>Skill data</legend>
+          <label>Title: <input type="text" id="title" name="title" required></label>
+          <label>Image URL: <input type="text" id="img" name="img"></label>
+          <label>Alt: <input type="text" id="alt" name="alt"></label>
+          <label>Description: <textarea id="description" name="description"></textarea></label>
+          <label>Link: <input type="url" id="link" name="link"></label>
+        </fieldset>
+
+        <div style="margin-top:1rem">
+          <button id="submit-btn" type="submit">Apply</button>
+        </div>
+      </form>
+
+      <output id="message" role="status"></output>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Website by Moritz Schmitz</p>
+  </footer>
+</body>
+</html>
