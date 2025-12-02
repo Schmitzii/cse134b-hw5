@@ -684,8 +684,6 @@ skill-card {
     display: inline-flex;
     align-items: center;
     gap: 0.2em;
-    justify-content: center;
-    width: 100%;
     color: var(--primary-color);
     text-decoration: none;
 }
@@ -696,4 +694,9 @@ skill-card {
 
 .download-link:hover {
     text-decoration: underline;
+}
+
+.download-wrapper {
+    text-align: center;
+    margin-top: 1em;
 }
