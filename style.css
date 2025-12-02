@@ -679,3 +679,21 @@ skill-card {
     flex: 0 0 var(--skill-card-width, 320px);
     display: block;
 }
+
+.download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2em;
+    justify-content: center;
+    width: 100%;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.download-link svg {
+    fill: var(--primary-color);
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}
