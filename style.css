@@ -723,6 +723,10 @@ skill-card {
     border-color:var(--primary-color);
 }
 
+.filter-btn:hover{
+    color: white 
+}
+
 
 /* Social links (contact page) */
 .social-links{
