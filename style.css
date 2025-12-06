@@ -692,6 +692,38 @@ skill-card {
     fill: var(--primary-color);
 }
 
+.projects-controls{
+    max-width: 60rem;
+    margin: 0.5rem auto;
+    display:flex;
+    gap:0.5rem;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+}
+.projects-controls input[type="search"]{
+    padding:0.6em 0.8em;
+    border-radius:0.6em;
+    border:1px solid #ccc;
+    min-width:220px;
+    max-width:44rem;
+    box-sizing:border-box;
+}
+.filter-btn{
+    padding:0.5em 0.8em;
+    border-radius:0.6em;
+    border:1px solid transparent;
+    background:var(--base-variant);
+    color:var(--text-color);
+    cursor:pointer;
+}
+.filter-btn.active{
+    background:var(--primary-color);
+    color:white;
+    border-color:var(--primary-color);
+}
+
+
 /* Social links (contact page) */
 .social-links{
     display:flex;

@@ -17,6 +17,7 @@
         } catch (e) { }
     </script>
     <script src="js/index.js" defer></script>
+    <script src="js/projects.js" defer></script>
     <noscript>
         <style>
             #theme-switch {
@@ -39,8 +40,20 @@
         </nav>
     </header>
     <main>
+        <div class="projects-controls">
+            <input id="project-search" type="search" placeholder="Search projects by title or description">
+            <div id="project-filters" role="toolbar">
+                <button class="filter-btn" data-tag="all" aria-pressed="true">All</button>
+                <button class="filter-btn" data-tag="visualization">Visualization</button>
+                <button class="filter-btn" data-tag="homework">Homework</button>
+                <button class="filter-btn" data-tag="portfolio">Portfolio</button>
+            </div>
+        </div>
+
         <section id="project-section">
-            <a href="projects/electric-field-project.html">
+            <a href="projects/electric-field-project.html" data-tags="visualization,physics">
+                <!-- tags: visualization, physics -->
+                
                 <project-card>
                     <picture>
                         <source srcset="assets/images/electric-field-screenshot.webp" media="(min-width: 800px)">
@@ -56,7 +69,7 @@
                 </project-card>
             </a>
 
-            <a href="projects/homework-2-project.html">
+            <a href="projects/homework-2-project.html" data-tags="homework,replica">
                 <project-card>
                     <picture>
                         <source srcset="assets/images/hw2-replica-screenshot.webp" media="(min-width: 800px)">
@@ -72,7 +85,7 @@
                 </project-card>
             </a>
 
-            <a href="projects/personal-portfolio-project.html">
+            <a href="projects/personal-portfolio-project.html" data-tags="portfolio,personal">
                 <project-card>
                     <picture>
                         <source srcset="assets/images/portfolio-screenshot.webp" media="(min-width: 800px)">
